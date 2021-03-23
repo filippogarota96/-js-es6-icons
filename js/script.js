@@ -138,15 +138,14 @@ categories.forEach((element) => {
     iconsCategory.push(element);
   }
 });
-console.log(iconsCategory);
-console.log(colors);
+
+
 //Aggiungo a ogni categoria il suo colore
 icons.forEach((icon) => {
   const categoryIndex = iconsCategory.indexOf(icon.category);
   const iconsColor = colors[categoryIndex];
   icon.color = iconsColor;
 });
-console.log(icons);
 
 icons.forEach((icon) => {
   const {name, family, category, prefix, color } = icon;
@@ -170,6 +169,11 @@ iconsCategory.forEach((item) => {
 
 
 
+
 $( "#type" ).change(function() {
   const selected = $(this).val();
+  const filteredIcon = icons.filter((icon) => {
+    return icon.category == selected
+  });
+  console.log(filteredIcon);
 });
