@@ -162,14 +162,14 @@ icons.forEach((icon) => {
 
 // Milestone 3
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
-
+let optionSelect =  $('#type');
 iconsCategory.forEach((item) => {
   const option = `<option value="">${item}</option>`;
-  $('#type').append(option);
+  optionSelect.append(option);
 });
 
 
 
 $( "#type" ).change(function() {
-  alert( "Handler for .change() called." );
+  const selected = $(this).val();
 });
