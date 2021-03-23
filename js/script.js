@@ -129,3 +129,22 @@ icons.forEach((icon) => {
   </div> `;
   $('.icons').append(html);
 });
+
+// Milestone 2
+// Coloriamo le icone per tipo
+
+// creo un array con i colori:
+const colors = ['red', 'blue', 'green'];
+
+// mappo le categorie di icons
+const categories = icons.map((item) => item.category);
+
+// Creo un array in cui le categorie non si ripetano
+let iconsCategory = [];
+
+categories.forEach((element) => {
+  if (iconsCategory.includes(element) == false) {
+    iconsCategory.push(element);
+  }
+});
+console.log(iconsCategory);
