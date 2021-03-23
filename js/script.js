@@ -140,11 +140,19 @@ const colors = ['red', 'blue', 'green'];
 const categories = icons.map((item) => item.category);
 
 // Creo un array in cui le categorie non si ripetano
-let iconsCategory = [];
 
+let iconsCategory = [];
 categories.forEach((element) => {
   if (iconsCategory.includes(element) == false) {
     iconsCategory.push(element);
   }
 });
 console.log(iconsCategory);
+console.log(colors);
+//Aggiungo a ogni categoria il suo colore
+icons.forEach((icon) => {
+  const categoryIndex = iconsCategory.indexOf(icon.category);
+  const iconsColor = colors[categoryIndex]
+  icon.color = iconsColor
+  console.log(icon);
+});
