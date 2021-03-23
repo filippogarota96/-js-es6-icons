@@ -163,17 +163,34 @@ icons.forEach((icon) => {
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 let optionSelect =  $('#type');
 iconsCategory.forEach((item) => {
-  const option = `<option value="">${item}</option>`;
+  const option = `<option>${item}</option>`;
   optionSelect.append(option);
 });
 
 
 
 
-$( "#type" ).change(function() {
+$( "#type" ).change( function() {
   const selected = $(this).val();
-  const filteredIcon = icons.filter((icon) => {
-    return icon.category == selected
+  let filteredIcon = icons.filter((icon) => {
+    return icon.category == selected;
   });
-  console.log(filteredIcon);
+
+  if (filteredIcon.length == 0) {
+    filteredIcon = icons;
+  }
+
+  $('.icons').html(' ');
+
+  filteredIcon.forEach((icon) => {
+    const {name, family, category, prefix, color } = icon;
+    var html =
+    `<div>
+    <i class="${family} ${prefix}${name}" style = "color: ${color}"></i>
+    <div class="title">${name}</div>
+    </div> `;
+    $('.icons').append(html);
+    // html: `<option value="">${category}</option>`;
+    // $('#type').append(html);
+  });
 });
