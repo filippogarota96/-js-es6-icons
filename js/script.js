@@ -1,9 +1,9 @@
 // Milestone 1
 // Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
-// 
+//
 // Milestone 2
 // Coloriamo le icone per tipo
-// 
+//
 // Milestone 3
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 
@@ -117,3 +117,15 @@ const icons = [
     category: "animal"
   },
 ];
+
+// milestone 1
+// appendo tutte le icone all'html
+icons.forEach((icon) => {
+  const {name, family, category, prefix, } = icon;
+  var html =
+  `<div>
+    <i class="${family} ${prefix}${name}"></i>
+    <div class="title">${name}</div>
+  </div> `;
+  $('.icons').append(html);
+});
