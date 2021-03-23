@@ -120,15 +120,6 @@ const icons = [
 
 // milestone 1
 // appendo tutte le icone all'html
-icons.forEach((icon) => {
-  const {name, family, category, prefix, } = icon;
-  var html =
-  `<div>
-    <i class="${family} ${prefix}${name}"></i>
-    <div class="title">${name}</div>
-  </div> `;
-  $('.icons').append(html);
-});
 
 // Milestone 2
 // Coloriamo le icone per tipo
@@ -152,7 +143,17 @@ console.log(colors);
 //Aggiungo a ogni categoria il suo colore
 icons.forEach((icon) => {
   const categoryIndex = iconsCategory.indexOf(icon.category);
-  const iconsColor = colors[categoryIndex]
-  icon.color = iconsColor
-  console.log(icon);
+  const iconsColor = colors[categoryIndex];
+  icon.color = iconsColor;
+});
+console.log(icons);
+
+icons.forEach((icon) => {
+  const {name, family, category, prefix, color } = icon;
+  var html =
+  `<div>
+  <i class="${family} ${prefix}${name}" style = "color: ${color}"></i>
+  <div class="title">${name}</div>
+  </div> `;
+  $('.icons').append(html);
 });
